@@ -1,9 +1,15 @@
 import "./App.css";
 import React from "react";
-
+import Message from "./Message";
 class App extends React.Component {
   render() {
-    return <h1> My First CRA App !</h1>;
+    return (
+      <div>
+        <Message msg="Hello" />
+        <Message msg="Hi" />
+        <Message msg="Bye" />
+      </div>
+    );
   }
 }
 
