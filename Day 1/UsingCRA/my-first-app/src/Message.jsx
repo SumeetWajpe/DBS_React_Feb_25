@@ -3,7 +3,7 @@ import React from "react";
 export default class Message extends React.Component {
   render() {
     return (
-      <div>
+      <div className="col">
         <img
           src={this.props.messagedetails.imageUrl}
           alt={this.props.messagedetails.msg}

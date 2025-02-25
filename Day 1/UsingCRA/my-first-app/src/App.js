@@ -13,37 +13,24 @@ class App extends React.Component {
     {
       msg: "Hey",
       from: "John",
-      to: "James",
+      to: "Cater",
       imageUrl:
-        "https://media.istockphoto.com/id/1496192609/vector/hello-written-speech-bubble-on-yellow-background.jpg?s=612x612&w=0&k=20&c=WGz6PfIO8lVjj3FkgDYZYMpfXFFyIjTIm_mg1aQc-lA=",
+        "https://www.shutterstock.com/image-vector/hey-text-speech-bubble-hi-260nw-2328471449.jpg",
     },
     {
       msg: "Bye",
-      from: "John",
-      to: "James",
+      from: "Peter",
+      to: "Parker",
       imageUrl:
-        "https://media.istockphoto.com/id/1496192609/vector/hello-written-speech-bubble-on-yellow-background.jpg?s=612x612&w=0&k=20&c=WGz6PfIO8lVjj3FkgDYZYMpfXFFyIjTIm_mg1aQc-lA=",
+        "https://t4.ftcdn.net/jpg/09/31/35/03/360_F_931350340_AcabQENvih7ETypJOapmLp4xqGiICUCS.jpg",
     },
   ];
   render() {
     return (
-      <div>
+      <div className="row">
         {this.messages.map(m => (
           <Message messagedetails={m} />
         ))}
-
-        {/* <Message
-          msg="Hi"
-          from="James"
-          to="Bond"
-          imageUrl="https://media.istockphoto.com/id/1496192609/vector/hello-written-speech-bubble-on-yellow-background.jpg?s=612x612&w=0&k=20&c=WGz6PfIO8lVjj3FkgDYZYMpfXFFyIjTIm_mg1aQc-lA="
-        />
-        <Message
-          msg="Bye"
-          from="Peter"
-          to="Parker"
-          imageUrl="https://media.istockphoto.com/id/1496192609/vector/hello-written-speech-bubble-on-yellow-background.jpg?s=612x612&w=0&k=20&c=WGz6PfIO8lVjj3FkgDYZYMpfXFFyIjTIm_mg1aQc-lA="
-        /> */}
       </div>
     );
   }
