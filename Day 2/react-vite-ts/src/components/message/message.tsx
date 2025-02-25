@@ -1,7 +1,18 @@
 import React from "react";
 
-export default class Message extends React.Component {
-  render() {
+export type MessageDetails = {
+  from: string;
+  to: string;
+  msg: string;
+  imageUrl: string;
+};
+
+type MessageProps = {
+  messagedetails: MessageDetails;
+};
+
+export default class Message extends React.Component<MessageProps> {
+  render(): React.ReactNode {
     return (
       <div className="col-md-3">
         <div className="card">
