@@ -50,7 +50,7 @@ export default class ListOfCourses extends Component {
         "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg",
     },
   ];
-  render() {
+  render() { 
     return (
       <div className="row">
         {this.courses.map((course: CourseModel) => (
