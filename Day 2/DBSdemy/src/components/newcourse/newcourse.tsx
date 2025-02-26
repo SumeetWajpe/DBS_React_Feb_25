@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { CourseModel } from "../../models/course.model";
 
-const NewCourse = () => {
-  const [newCourse, setNewCourse] = useState(
+type NewCourseProps = {
+  AddANewCourse: (nc: CourseModel) => void;
+};
+
+const NewCourse: React.FC<NewCourseProps> = (props: NewCourseProps) => {
+  const [newCourse, setNewCourse] = useState<CourseModel>(
     new CourseModel(0, "", 0, 0, 0, ""),
   );
   return (
@@ -13,7 +17,7 @@ const NewCourse = () => {
           <form
             onSubmit={e => {
               e.preventDefault(); // prevent the browser from reloading the page
-              console.log(newCourse);
+              props.AddANewCourse(newCourse);
             }}
           >
             <div className="row my-1">

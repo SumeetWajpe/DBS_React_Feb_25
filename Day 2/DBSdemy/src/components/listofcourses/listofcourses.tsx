@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import Course from "../course/course";
 import axios from "axios";
+import NewCourse from "../newcourse/newcourse";
 
 const ListOfCourses: React.FC = () => {
   let [courses, setCourses] = useState<CourseModel[]>([]);
@@ -20,6 +21,12 @@ const ListOfCourses: React.FC = () => {
       });
   }, []);
 
+  function AddANewCourse(newcourse: CourseModel) {
+    // logic to add new course
+    // courses.push(newcourse); // push adds the item to existing array
+    setCourses([...courses, newcourse]);
+  }
+
   function DeleteACourse(id: number) {
     // setCourses()
     // console.log("Within DeleteACourse :: ListOfCourses", id);
@@ -28,6 +35,7 @@ const ListOfCourses: React.FC = () => {
   }
   return (
     <div className="row">
+      <NewCourse AddANewCourse={(c: CourseModel) => AddANewCourse(c)} />
       <header>
         <h1> List Of Courses</h1>
       </header>
