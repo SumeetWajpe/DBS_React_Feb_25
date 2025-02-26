@@ -53,12 +53,15 @@ const ListOfCourses: React.FC = () => {
 
   function DeleteACourse(id: number) {
     // setCourses()
-    console.log("Within DeleteACourse :: ListOfCourses", id);
+    // console.log("Within DeleteACourse :: ListOfCourses", id);
+    let updatedCourses = courses.filter(c => c.id !== id);
+    setCourses(updatedCourses);
   }
   return (
     <div className="row">
       {courses.map((course: CourseModel) => (
         <Course
+          key={course.id}
           coursedetails={course}
           DeleteACourse={(id: number) => DeleteACourse(id)}
         />
