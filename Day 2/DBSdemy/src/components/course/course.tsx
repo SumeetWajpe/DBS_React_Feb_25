@@ -4,7 +4,7 @@ import Rating from "../rating/rating";
 
 type CourseProps = {
   coursedetails: CourseModel;
-  DeleteACourse: () => void;
+  DeleteACourse: (id: number) => void;
 };
 
 const Course: React.FC<CourseProps> = (props: CourseProps) => {
@@ -36,7 +36,7 @@ const Course: React.FC<CourseProps> = (props: CourseProps) => {
           </button>
           <button
             className="btn btn-danger mx-2"
-            onClick={() => props.DeleteACourse()}
+            onClick={() => props.DeleteACourse(props.coursedetails.id)}
           >
             <i className="fa-solid fa-trash"></i>
           </button>
