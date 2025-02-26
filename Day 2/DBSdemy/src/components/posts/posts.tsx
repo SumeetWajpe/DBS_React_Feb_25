@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+type PostModel = {
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
+};
+
 const Posts: React.FC = () => {
-  const [posts, setPosts] = useState<any>([]);
+  const [posts, setPosts] = useState<PostModel[]>([]);
   useEffect(() => {
     axios
       .get("http://localhost:3500/posts")
@@ -15,7 +22,7 @@ const Posts: React.FC = () => {
         // handle error
         console.log(error);
       });
-    console.log("Done !");
+    // console.log("Done !");
   }, []);
   return (
     <div>
@@ -24,7 +31,7 @@ const Posts: React.FC = () => {
       </header>
       <main>
         <ul>
-          {posts.map((p: any) => (
+          {posts.map((p: PostModel) => (
             <li key={p.id}>{p.title}</li>
           ))}
         </ul>
