@@ -4,6 +4,7 @@ import Rating from "../rating/rating";
 
 type CourseProps = {
   coursedetails: CourseModel;
+  DeleteACourse: () => void;
 };
 
 const Course: React.FC<CourseProps> = (props: CourseProps) => {
@@ -27,11 +28,17 @@ const Course: React.FC<CourseProps> = (props: CourseProps) => {
           </p>
           <button
             className="btn btn-primary"
-            onClick={() => setCurrLikes(props.coursedetails.likes + 1)}
+            onClick={() => setCurrLikes(currLikes + 1)}
           >
             {/* {this.props.coursedetails.likes}{" "} */}
             {currLikes}
             <i className="fa-solid fa-thumbs-up"></i>
+          </button>
+          <button
+            className="btn btn-danger mx-2"
+            onClick={() => props.DeleteACourse()}
+          >
+            <i className="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import Course from "../course/course";
 
 const ListOfCourses: React.FC = () => {
-  let courses: CourseModel[] = [
+  let [courses, setCourses] = useState<CourseModel[]>([
     {
       id: 1,
       title: "React",
@@ -49,11 +49,17 @@ const ListOfCourses: React.FC = () => {
       imageUrl:
         "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg",
     },
-  ];
+  ]);
+
+  function DeleteACourse() {
+    // setCourses()
+    console.log("Within DeleteACourse :: ListOfCourses");
+  }
+
   return (
     <div className="row">
       {courses.map((course: CourseModel) => (
-        <Course coursedetails={course} />
+        <Course coursedetails={course} DeleteACourse={() => DeleteACourse()} />
       ))}
     </div>
   );
