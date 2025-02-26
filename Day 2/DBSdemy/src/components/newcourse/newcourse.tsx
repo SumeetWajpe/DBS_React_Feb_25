@@ -1,23 +1,131 @@
 import React, { useState } from "react";
+import { CourseModel } from "../../models/course.model";
 
 const NewCourse = () => {
-  const [title, setTitle] = useState("");
+  const [newCourse, setNewCourse] = useState(
+    new CourseModel(0, "", 0, 0, 0, ""),
+  );
   return (
-    <form
-      onSubmit={(e: any) => {
-        e.preventDefault(); // prevent browser from reloading
-        console.log(title);
-      }}
-    >
-      <label htmlFor="txtTitle">Title : </label>
-      <input
-        type="text"
-        id="txtTitle"
-        onInput={(e: any) => setTitle(e.target.value)}
-      />
-
-      <button className="btn btn-success">Add New Course</button>
-    </form>
+    <>
+      <div>
+        <h1>New Course</h1>
+        <div className="d-flex justify-content-center align-items-center">
+          <form
+            onSubmit={e => {
+              e.preventDefault(); // prevent the browser from reloading the page
+              console.log(newCourse);
+            }}
+          >
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCourseId">Id : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="number"
+                  id="txtCourseId"
+                  onChange={
+                    e =>
+                      setNewCourse({
+                        ...newCourse,
+                        id: parseInt(e.target.value),
+                      }) // converts string to number
+                  }
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCourseTitle">Title : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  id="txtCourseTitle"
+                  onChange={e => {
+                    setNewCourse({ ...newCourse, title: e.target.value });
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCoursePrice">Price : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="number"
+                  id="txtCoursePrice"
+                  onChange={e => {
+                    setNewCourse({
+                      ...newCourse,
+                      price: parseInt(e.target.value),
+                    });
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCourseRating">Rating : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="number"
+                  id="txtCourseRating"
+                  onChange={e => {
+                    setNewCourse({
+                      ...newCourse,
+                      rating: parseInt(e.target.value),
+                    });
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCourseLikes">Likes : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="number"
+                  id="txtCourseLikes"
+                  onChange={e => {
+                    setNewCourse({
+                      ...newCourse,
+                      likes: parseInt(e.target.value),
+                    });
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtCourseImageUrl">Image : </label>
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  id="txtCourseImageUrl"
+                  onChange={e => {
+                    setNewCourse({ ...newCourse, imageUrl: e.target.value });
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-3"></div>
+              <div className="col-md-9">
+                <button className="btn btn-success">
+                  Add new Course{" "}
+                  <i className="fa fa-plus-circle" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
 };
 
