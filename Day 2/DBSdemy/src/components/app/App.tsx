@@ -2,8 +2,9 @@ import React from "react";
 import ListOfCourses from "../listofcourses/listofcourses";
 import Posts from "../posts/posts";
 import NewCourse from "../newcourse/newcourse";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../navbar/navbar";
+import CourseDetails from "../coursedetails/coursedetails";
 class App extends React.Component {
   render() {
     return (
@@ -13,8 +14,9 @@ class App extends React.Component {
         <Navbar />
         <Routes>
           <Route path="/" Component={ListOfCourses} />
-          <Route path="/posts" Component={Posts} />
+          <Route path="/coursedetails/:id" Component={CourseDetails} />
           <Route path="/newcourse" Component={NewCourse} />
+          <Route path="/posts" Component={Posts} />
         </Routes>
       </BrowserRouter>
     );

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import Course from "../course/course";
 import axios from "axios";
-import NewCourse from "../newcourse/newcourse";
 
 const ListOfCourses: React.FC = () => {
   let [courses, setCourses] = useState<CourseModel[]>([]);
