@@ -641,6 +641,22 @@
       "likes": 700,
       "rating": 4,
       "imageUrl": "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg"
+    },
+    {
+      "id": 7,
+      "title": "GraphQL",
+      "price": 8000,
+      "rating": 4,
+      "likes": 800,
+      "imageUrl": "https://everyday.codes/wp-content/uploads/2019/12/og_image.png"
+    },
+    {
+      "id": 8,
+      "title": "Kubernetes",
+      "price": 9000,
+      "rating": 5,
+      "likes": 900,
+      "imageUrl": "https://www.softwebsolutions.com/wp-content/uploads/2023/07/Kubernet.png"
     }
   ]
 }

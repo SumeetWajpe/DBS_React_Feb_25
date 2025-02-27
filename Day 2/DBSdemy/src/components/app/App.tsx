@@ -1,7 +1,5 @@
 import React from "react";
 import ListOfCourses from "../listofcourses/listofcourses";
-import Message from "../message/message";
-import Counter from "../counter/counter";
 import Posts from "../posts/posts";
 import NewCourse from "../newcourse/newcourse";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -16,6 +14,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/" Component={ListOfCourses} />
           <Route path="/posts" Component={Posts} />
+          <Route path="/newcourse" Component={NewCourse} />
         </Routes>
       </BrowserRouter>
     );

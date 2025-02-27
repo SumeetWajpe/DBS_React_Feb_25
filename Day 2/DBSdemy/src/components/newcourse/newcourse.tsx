@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { CourseModel } from "../../models/course.model";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-type NewCourseProps = {
-  AddANewCourse: (nc: CourseModel) => void;
-};
-
-const NewCourse: React.FC<NewCourseProps> = (props: NewCourseProps) => {
+const NewCourse: React.FC = () => {
+  const navigate = useNavigate();
   const [newCourse, setNewCourse] = useState<CourseModel>(
     new CourseModel(0, "", 0, 0, 0, ""),
   );
@@ -17,7 +16,18 @@ const NewCourse: React.FC<NewCourseProps> = (props: NewCourseProps) => {
           <form
             onSubmit={e => {
               e.preventDefault(); // prevent the browser from reloading the page
-              props.AddANewCourse(newCourse);
+              // ajax post to add new course
+
+              axios
+                .post("http://localhost:3500/courses", { ...newCourse })
+                .then(function (response) {
+                  if (response.status == 201) {
+                    navigate("/");
+                  }
+                })
+                .catch(function (err) {
+                  console.log(err);
+                });
             }}
           >
             <div className="row my-1">
