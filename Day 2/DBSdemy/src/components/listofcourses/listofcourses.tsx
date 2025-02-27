@@ -21,11 +21,11 @@ const ListOfCourses: React.FC = () => {
       });
   }, []);
 
-  function AddANewCourse(newcourse: CourseModel) {
-    // logic to add new course
-    // courses.push(newcourse); // push adds the item to existing array
-    setCourses([...courses, newcourse]);
-  }
+  // function AddANewCourse(newcourse: CourseModel) {
+  //   // logic to add new course
+  //   // courses.push(newcourse); // push adds the item to existing array
+  //   setCourses([...courses, newcourse]);
+  // }
 
   function DeleteACourse(id: number) {
     // setCourses()
@@ -35,7 +35,6 @@ const ListOfCourses: React.FC = () => {
   }
   return (
     <div className="row">
-      <NewCourse AddANewCourse={(c: CourseModel) => AddANewCourse(c)} />
       <header>
         <h1> List Of Courses</h1>
       </header>
