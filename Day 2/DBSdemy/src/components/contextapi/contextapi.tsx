@@ -1,13 +1,23 @@
 import React, { useContext, useState } from "react";
 
-const CounterContext = React.createContext(0);
+const CounterContext = React.createContext({
+  counter: 0,
+  changeCount: () => {},
+});
 
 export default function GrandParent() {
-  const [count, setCount] = useState(100);
+  const [data, setData] = useState(100);
   return (
     <div>
       <h2>Grand Parent</h2>
-      <CounterContext.Provider value={count}>
+      <CounterContext.Provider
+        value={{
+          counter: data,
+          changeCount: () => {
+            setData(data + 1);
+          },
+        }}
+      >
         <Parent />
       </CounterContext.Provider>
     </div>
@@ -24,11 +34,17 @@ export function Parent() {
 }
 
 export function Child() {
-  const count = useContext(CounterContext);
+  let ctx = useContext(CounterContext);
   return (
     <div>
       <h2>Child</h2>
-      <p>The Count is - {count}</p>
+      <p>The Count is - {ctx.counter}</p>
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => ctx.changeCount()}
+      >
+        ++
+      </button>
     </div>
   );
 }

@@ -35,6 +35,11 @@ const Navbar = () => {
                 New Course
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contextapi">
+                Context API
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

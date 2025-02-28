@@ -5,6 +5,7 @@ import NewCourse from "../newcourse/newcourse";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import CourseDetails from "../coursedetails/coursedetails";
+import GrandParent from "../contextapi/contextapi";
 
 // Lazy - Loading Post component
 const Posts = React.lazy(() => import("../posts/posts"));
@@ -19,6 +20,8 @@ class App extends React.Component {
           <Route path="/" Component={ListOfCourses} />
           <Route path="/coursedetails/:id" Component={CourseDetails} />
           <Route path="/newcourse" Component={NewCourse} />
+          <Route path="/contextapi" Component={GrandParent} />
+
           <Route
             path="/posts"
             element={
