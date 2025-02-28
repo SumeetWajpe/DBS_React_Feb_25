@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CourseModel } from "../../models/course.model";
 import Course from "../course/course";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { SagaActions } from "../../saga/sagaactions";
 
 const ListOfCourses: React.FC = () => {
   const courses = useSelector((store: any) => store.courses);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch({ type: SagaActions.FETCH_ALL_COURSES });
+  // }, []);
 
   return (
     <div className="row">
       <header>
         <h1> List Of Courses</h1>
       </header>
+
       {courses.length == 0
         ? "Loading.."
         : courses.map((course: CourseModel) => (
             <Course key={course.id} coursedetails={course} />
           ))}
+
+      <button
+        className="btn btn-primary"
+        onClick={() => dispatch({ type: SagaActions.FETCH_ALL_COURSES })}
+      >
+        Get All Courses
+      </button>
     </div>
   );
 };
