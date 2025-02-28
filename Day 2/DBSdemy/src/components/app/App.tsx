@@ -1,10 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ListOfCourses from "../listofcourses/listofcourses";
-import Posts from "../posts/posts";
+// import Posts from "../posts/posts";
 import NewCourse from "../newcourse/newcourse";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import CourseDetails from "../coursedetails/coursedetails";
+
+// Lazy - Loading Post component
+const Posts = React.lazy(() => import("../posts/posts"));
+const Loading = () => {
+  <img src="https://www.icegif.com/wp-content/uploads/2023/07/icegif-1262.gif" />;
+};
 class App extends React.Component {
   render() {
     return (
@@ -16,7 +22,18 @@ class App extends React.Component {
           <Route path="/" Component={ListOfCourses} />
           <Route path="/coursedetails/:id" Component={CourseDetails} />
           <Route path="/newcourse" Component={NewCourse} />
-          <Route path="/posts" Component={Posts} />
+          <Route
+            path="/posts"
+            element={
+              <Suspense
+                fallback={
+                  <img src="https://www.icegif.com/wp-content/uploads/2023/07/icegif-1262.gif" />
+                }
+              >
+                <Posts />
+              </Suspense>
+            }
+          />
           <Route
             path="*"
             element={
