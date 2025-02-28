@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useFetchData } from "../../hooks/useFetchData";
 
 type PostModel = {
   id: number;
@@ -9,21 +10,7 @@ type PostModel = {
 };
 
 const Posts: React.FC = () => {
-  const [posts, setPosts] = useState<PostModel[]>([]);
-  useEffect(() => {
-    axios
-      .get("http://localhost:3500/posts")
-      .then(function (response) {
-        // handle success
-        // console.log(response.data);
-        setPosts(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-    // console.log("Done !");
-  }, []);
+  const posts: any = useFetchData("http://localhost:3500/posts");
   return (
     <div>
       <header>
@@ -31,9 +18,9 @@ const Posts: React.FC = () => {
       </header>
       <main>
         <ul>
-          {posts.map((p: PostModel) => (
-            <li key={p.id}>{p.title}</li>
-          ))}
+          {posts
+            ? posts.map((p: PostModel) => <li key={p.id}>{p.title}</li>)
+            : "No Posts"}
         </ul>
       </main>
     </div>
