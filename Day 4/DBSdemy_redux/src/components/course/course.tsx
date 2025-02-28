@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import Rating from "../rating/rating";
+import { useDispatch } from "react-redux";
+import {
+  DeleteCourse,
+  IncrementLikes,
+} from "../../redux/reducers/courses.reducer";
 
 type CourseProps = {
   coursedetails: CourseModel;
 };
 
 const Course: React.FC<CourseProps> = (props: CourseProps) => {
+  const dispatch = useDispatch();
   return (
     <div className="col-md-3">
       <div className="card m-2 p-2 shadow rounded-0">
@@ -24,11 +30,17 @@ const Course: React.FC<CourseProps> = (props: CourseProps) => {
           <p className="cart-text">
             <Rating noofstars={props.coursedetails.rating} />
           </p>
-          <button className="btn btn-primary">
+          <button
+            className="btn btn-primary"
+            onClick={() => dispatch(IncrementLikes(props.coursedetails.id))}
+          >
             {props.coursedetails.likes}{" "}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
-          <button className="btn btn-danger mx-2">
+          <button
+            className="btn btn-danger mx-2"
+            onClick={() => dispatch(DeleteCourse(props.coursedetails.id))}
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>

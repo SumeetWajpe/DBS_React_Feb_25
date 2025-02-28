@@ -17,6 +17,12 @@ class App extends React.Component {
           <Route path="/coursedetails/:id" Component={CourseDetails} />
           <Route path="/newcourse" Component={NewCourse} />
           <Route path="/posts" Component={Posts} />
+          <Route
+            path="*"
+            element={
+              <img src="https://seocom.agency/wp-content/uploads/2024/05/Errores-Web-404-403-503-502-401.-Significado-y-soluciones-1.jpg" />
+            }
+          />
         </Routes>
       </BrowserRouter>
     );

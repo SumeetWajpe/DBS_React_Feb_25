@@ -10,8 +10,13 @@ const postsSlice = createSlice({
       console.log("Within DeletePost  Reducer !");
       return store; // return new store value
     },
+    IncrementLikes: (store, action) => {
+      console.log("Within Increment Likes  Reducer !");
+      console.log(action);
+      return store; // return new store value
+    },
   },
 });
 
-export const { DeletePost } = postsSlice.actions; // exposing actions to be used in React
+export const { DeletePost, IncrementLikes } = postsSlice.actions; // exposing actions to be used in React
 export default postsSlice.reducer;
