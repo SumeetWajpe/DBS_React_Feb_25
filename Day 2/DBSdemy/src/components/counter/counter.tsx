@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-type CounterState = {
-  counter: number;
-  age: number;
-};
+// type CounterState = {
+//   counter: number;
+//   age: number;
+// };
 
 // const Counter: React.FC = () => {
 //   // const [counter, setCounter] = useState<number>(100); // 16.8 -> useState Hook !

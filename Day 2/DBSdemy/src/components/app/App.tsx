@@ -8,9 +8,6 @@ import CourseDetails from "../coursedetails/coursedetails";
 
 // Lazy - Loading Post component
 const Posts = React.lazy(() => import("../posts/posts"));
-const Loading = () => {
-  <img src="https://www.icegif.com/wp-content/uploads/2023/07/icegif-1262.gif" />;
-};
 class App extends React.Component {
   render() {
     return (
